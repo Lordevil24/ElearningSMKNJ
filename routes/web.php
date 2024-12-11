@@ -9,10 +9,16 @@ Route::get('/', function () {
     return Inertia::render('SelamatDatang', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
     ]);
-});
+})->name('home');
+
+Route::get('/contact-us', function () {
+    return Inertia::render('ContactUs');
+})->name('contact-us');
+
+Route::get('/our-majors', function () {
+    return Inertia::render('OurMajor');
+})->name('majors');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
