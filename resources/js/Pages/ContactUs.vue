@@ -1,5 +1,5 @@
 <script setup>
-import GuestLayout from '@/Layouts/GuestLayout.vue';
+import GuestLayout from '@/Layouts/StudentLayout.vue';
 import { Head, Link } from '@inertiajs/vue3';
 </script>
 

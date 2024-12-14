@@ -1,5 +1,5 @@
 <script setup>
-import GuestLayout from '@/Layouts/GuestLayout.vue';
+import GuestLayout from '@/Layouts/StudentLayout.vue';
 import { Head, Link } from '@inertiajs/vue3';
 </script>
 
@@ -22,14 +22,13 @@ import { Head, Link } from '@inertiajs/vue3';
                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
                         <div class="service-card d-flex">
                             <div class="icon flex-shrink-0">
-                                <i class="bi bi-activity"></i>
+                                <i class="bi bi-lightning"></i>
                             </div>
                             <div>
-                                <h3>Nesciunt Mete</h3>
-                                <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus
-                                    dolores iure
-                                    perferendis tempore et consequatur.</p>
-                                <a href="service-details.html" class="read-more">Read More <i
+                                <h3>Teknik Pengelasan dan Teknik Listrik (TPTL)</h3>
+                                <p>Program keahlian yang fokus pada teknik pengelasan dan kelistrikan untuk mendukung
+                                    industri modern.</p>
+                                <a href="tptl-details.html" class="read-more">Read More <i
                                         class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
@@ -38,14 +37,13 @@ import { Head, Link } from '@inertiajs/vue3';
                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
                         <div class="service-card d-flex">
                             <div class="icon flex-shrink-0">
-                                <i class="bi bi-diagram-3"></i>
+                                <i class="bi bi-laptop"></i>
                             </div>
                             <div>
-                                <h3>Eosle Commodi</h3>
-                                <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque
-                                    eum hic non ut
-                                    nesciunt dolorem.</p>
-                                <a href="service-details.html" class="read-more">Read More <i
+                                <h3>Rekayasa Perangkat Lunak (RPL)</h3>
+                                <p>Program keahlian yang mengajarkan pengembangan perangkat lunak mulai dari coding
+                                    hingga deployment.</p>
+                                <a href="rpl-details.html" class="read-more">Read More <i
                                         class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
@@ -54,14 +52,13 @@ import { Head, Link } from '@inertiajs/vue3';
                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
                         <div class="service-card d-flex">
                             <div class="icon flex-shrink-0">
-                                <i class="bi bi-easel"></i>
+                                <i class="bi bi-palette"></i>
                             </div>
                             <div>
-                                <h3>Ledo Markt</h3>
-                                <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id
-                                    voluptas adipisci
-                                    eos earum corrupti.</p>
-                                <a href="service-details.html" class="read-more">Read More <i
+                                <h3>Desain Komunikasi Visual (DKV)</h3>
+                                <p>Program keahlian yang menekankan desain grafis, animasi, dan multimedia untuk dunia
+                                    kreatif.</p>
+                                <a href="dkv-details.html" class="read-more">Read More <i
                                         class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
@@ -70,14 +67,13 @@ import { Head, Link } from '@inertiajs/vue3';
                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
                         <div class="service-card d-flex">
                             <div class="icon flex-shrink-0">
-                                <i class="bi bi-clipboard-data"></i>
+                                <i class="bi bi-router"></i>
                             </div>
                             <div>
-                                <h3>Asperiores Commodit</h3>
-                                <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea
-                                    fuga sit provident
-                                    adipisci neque.</p>
-                                <a href="service-details.html" class="read-more">Read More <i
+                                <h3>Teknik Komputer dan Jaringan (TKJ)</h3>
+                                <p>Program keahlian yang mengajarkan perancangan, pengelolaan, dan perawatan jaringan
+                                    komputer.</p>
+                                <a href="tkj-details.html" class="read-more">Read More <i
                                         class="bi bi-arrow-right"></i></a>
                             </div>
                         </div>
@@ -86,6 +82,7 @@ import { Head, Link } from '@inertiajs/vue3';
                 </div>
 
             </div>
+
 
         </section><!-- /Services Section -->
     </GuestLayout>

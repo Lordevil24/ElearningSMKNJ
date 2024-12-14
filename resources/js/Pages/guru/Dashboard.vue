@@ -1,12 +1,12 @@
 <script setup>
-import GuestLayout from '@/Layouts/GuestLayout.vue';
+import GuruLayout from '@/Layouts/GuruLayout.vue';
 import { Head, Link } from '@inertiajs/vue3';
 </script>
 
 <template>
 
-  <Head title="E-Learning SMK Nurul Jadid" />
-  <GuestLayout>
+  <Head title="E-Learning" />
+  <GuruLayout>
 
     <!-- Hero Section -->
     <section id="hero" class="hero section">
@@ -18,25 +18,25 @@ import { Head, Link } from '@inertiajs/vue3';
             <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
               <div class="company-badge mb-4">
                 <i class="bi bi-mortarboard-fill me-2"></i>
-                Wujudkan Mimpimu Bersama SMK Nurul Jadid
+                Wujudkan Mimpimu Bersama Kami
               </div>
 
               <h1 class="mb-4">
-                Sistem Manajemen <br>
-                Pembelajaran <br>
-                <span class="accent-text">E-Learning SMK Nurul Jadid</span>
+                Maecenas Vitae <br>
+                Consectetur Led <br>
+                <span class="accent-text">Vestibulum Ante</span>
               </h1>
 
               <p class="mb-4 mb-md-5">
-                SMK Nurul Jadid memberikan kesempatan belajar dengan teknologi modern yang memudahkan proses belajar mengajar. 
-                Bergabunglah dan raih masa depan cerah bersama kami.
+                Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt.
+                Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna.
               </p>
 
               <div class="hero-buttons">
-                <Link :href="route('register')" class="btn btn-primary me-0 me-sm-2 mx-1">Daftar Sekarang</Link>
+                <Link :href="route('register')" class="btn btn-primary me-0 me-sm-2 mx-1">Get Started</Link>
                 <a href="https://youtu.be/NCMuVN4fFgo?si=2Ojh0asVQFzSB-nI" target="_blank" class="btn btn-link mt-2 mt-sm-0 glightbox">
                   <i class="bi bi-play-circle me-1"></i>
-                  Tonton Video
+                  Play Video
                 </a>
               </div>
             </div>
@@ -55,7 +55,7 @@ import { Head, Link } from '@inertiajs/vue3';
                   <img src="assets/img/avatar-5.webp" alt="Customer 5" class="avatar">
                   <span class="avatar more">12+</span>
                 </div>
-                <p class="mb-0 mt-2">12,000+ siswa dan alumni SMK Nurul Jadid telah meraih sukses melalui E-Learning kami.</p>
+                <p class="mb-0 mt-2">12,000+ lorem ipsum dolor sit amet consectetur adipiscing elit</p>
               </div>
             </div>
           </div>
@@ -68,8 +68,8 @@ import { Head, Link } from '@inertiajs/vue3';
                 <i class="bi bi-trophy"></i>
               </div>
               <div class="stat-content">
-                <h4>3x Menang Penghargaan</h4>
-                <p class="mb-0">Keunggulan dalam pendidikan dan pengajaran</p>
+                <h4>3x Won Awards</h4>
+                <p class="mb-0">Vestibulum ante ipsum</p>
               </div>
             </div>
           </div>
@@ -79,8 +79,8 @@ import { Head, Link } from '@inertiajs/vue3';
                 <i class="bi bi-briefcase"></i>
               </div>
               <div class="stat-content">
-                <h4>6.5k Siswa Terdaftar</h4>
-                <p class="mb-0">Membantu lebih dari 6.500 siswa sukses</p>
+                <h4>6.5k Faucibus</h4>
+                <p class="mb-0">Nullam quis ante</p>
               </div>
             </div>
           </div>
@@ -90,8 +90,8 @@ import { Head, Link } from '@inertiajs/vue3';
                 <i class="bi bi-graph-up"></i>
               </div>
               <div class="stat-content">
-                <h4>80k Materi Pembelajaran</h4>
-                <p class="mb-0">Akses ribuan materi pelajaran untuk semua jurusan</p>
+                <h4>80k Mauris</h4>
+                <p class="mb-0">Etiam sit amet orci</p>
               </div>
             </div>
           </div>
@@ -101,8 +101,8 @@ import { Head, Link } from '@inertiajs/vue3';
                 <i class="bi bi-award"></i>
               </div>
               <div class="stat-content">
-                <h4>6x Penghargaan Nasional</h4>
-                <p class="mb-0">Menjadi yang terbaik dalam bidang pendidikan</p>
+                <h4>6x Phasellus</h4>
+                <p class="mb-0">Vestibulum ante ipsum</p>
               </div>
             </div>
           </div>
@@ -123,34 +123,34 @@ import { Head, Link } from '@inertiajs/vue3';
           <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
             <div class="feature-box orange">
               <i class="bi bi-award"></i>
-              <h4>Penghargaan Nasional</h4>
-              <p>SMK Nurul Jadid telah meraih berbagai penghargaan dalam bidang pendidikan dan pengajaran</p>
+              <h4>Corporis voluptates</h4>
+              <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
             </div>
-          </div><!-- End Feature Box-->
+          </div><!-- End Feature Borx-->
 
           <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
             <div class="feature-box blue">
               <i class="bi bi-patch-check"></i>
-              <h4>Materi Berkualitas</h4>
-              <p>Pelajaran yang disusun oleh pengajar profesional dan dapat diakses kapan saja</p>
+              <h4>Explicabo consectetur</h4>
+              <p>Est autem dicta beatae suscipit. Sint veritatis et sit quasi ab aut inventore</p>
             </div>
-          </div><!-- End Feature Box-->
+          </div><!-- End Feature Borx-->
 
           <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
             <div class="feature-box green">
               <i class="bi bi-sunrise"></i>
-              <h4>Belajar Mandiri</h4>
-              <p>Fasilitas belajar online yang mendukung belajar secara mandiri di mana saja</p>
+              <h4>Ullamco laboris</h4>
+              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
             </div>
-          </div><!-- End Feature Box-->
+          </div><!-- End Feature Borx-->
 
           <div class="col-xl-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
             <div class="feature-box red">
               <i class="bi bi-shield-check"></i>
-              <h4>Keamanan Data</h4>
-              <p>Keamanan data siswa terjaga dengan sistem proteksi terbaru</p>
+              <h4>Labore consequatur</h4>
+              <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
             </div>
-          </div><!-- End Feature Box-->
+          </div><!-- End Feature Borx-->
 
         </div>
 
@@ -166,23 +166,27 @@ import { Head, Link } from '@inertiajs/vue3';
         <div class="row gy-4 align-items-center justify-content-between">
 
           <div class="col-xl-5" data-aos="fade-up" data-aos-delay="200">
-            <span class="about-meta">TENTANG KAMI</span>
-            <h2 class="about-title">SMK Nurul Jadid, Pendidikan Berkualitas</h2>
-            <p class="about-description">Kami berkomitmen untuk menyediakan pendidikan yang berkualitas bagi generasi muda yang siap bersaing di dunia industri. Sistem E-Learning kami mendukung pengajaran yang inovatif dan efektif.</p>
+            <span class="about-meta">MORE ABOUT US</span>
+            <h2 class="about-title">Voluptas enim suscipit temporibus</h2>
+            <p class="about-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium
+              doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et
+              quasi architecto
+              beatae vitae dicta sunt explicabo.</p>
 
             <div class="row feature-list-wrapper">
               <div class="col-md-6">
                 <ul class="feature-list">
-                  <li><i class="bi bi-check-circle-fill"></i> Pengajaran berbasis teknologi</li>
-                  <li><i class="bi bi-check-circle-fill"></i> Fasilitas lengkap untuk pembelajaran jarak jauh</li>
-                  <li><i class="bi bi-check-circle-fill"></i> Pembelajaran fleksibel dan interaktif</li>
+                  <li><i class="bi bi-check-circle-fill"></i> Lorem ipsum dolor sit amet</li>
+                  <li><i class="bi bi-check-circle-fill"></i> Consectetur adipiscing elit</li>
+                  <li><i class="bi bi-check-circle-fill"></i> Sed do eiusmod tempor</li>
                 </ul>
               </div>
               <div class="col-md-6">
                 <ul class="feature-list">
-                  <li><i class="bi bi-check-circle-fill"></i> Materi terbaru dan relevan</li>
-                  <li><i class="bi bi-check-circle-fill"></i> Dukungan 24/7 untuk siswa dan orang tua</li>
-                  <li><i class="bi bi-check-circle-fill"></i> Sistem ujian online yang transparan dan adil</li>
+                  <li><i class="bi bi-check-circle-fill"></i> Incididunt ut labore et</li>
+                  <li><i class="bi bi-check-circle-fill"></i> Dolore magna aliqua</li>
+                  <li><i class="bi bi-check-circle-fill"></i> Ut enim ad minim veniam</li>
                 </ul>
               </div>
             </div>
@@ -193,8 +197,8 @@ import { Head, Link } from '@inertiajs/vue3';
                   <div class="profile d-flex align-items-center gap-3">
                     <img src="assets/img/avatar-1.webp" alt="CEO Profile" class="profile-image">
                     <div>
-                      <h4 class="profile-name">Dr. H. Zainal Arifin</h4>
-                      <p class="profile-position">Kepala SMK Nurul Jadid</p>
+                      <h4 class="profile-name">Mario Smith</h4>
+                      <p class="profile-position">CEO &amp; Founder</p>
                     </div>
                   </div>
                 </div>
@@ -202,7 +206,7 @@ import { Head, Link } from '@inertiajs/vue3';
                   <div class="contact-info d-flex align-items-center gap-2">
                     <i class="bi bi-telephone-fill"></i>
                     <div>
-                      <p class="contact-label">Hubungi Kami</p>
+                      <p class="contact-label">Call us anytime</p>
                       <p class="contact-number">+123 456-789</p>
                     </div>
                   </div>
@@ -218,8 +222,8 @@ import { Head, Link } from '@inertiajs/vue3';
                 <img src="assets/img/about-2.webp" alt="Team Discussion" class="img-fluid small-image rounded-4">
               </div>
               <div class="experience-badge floating">
-                <h3>15+ <span>Tahun</span></h3>
-                <p>Pengalaman dalam dunia pendidikan</p>
+                <h3>15+ <span>Years</span></h3>
+                <p>Of experience in business service</p>
               </div>
             </div>
           </div>
@@ -228,5 +232,5 @@ import { Head, Link } from '@inertiajs/vue3';
       </div>
 
     </section><!-- /About Section -->
-  </GuestLayout>
+  </GuruLayout>
 </template>

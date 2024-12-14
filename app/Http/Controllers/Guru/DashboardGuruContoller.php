@@ -6,10 +6,11 @@ use Illuminate\Http\Request;
 
 use Inertia\Inertia;
 
-class DashboardController extends Controller
+class DashboardGuruController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Dashboard');
+        return Inertia::render('guru/Dashboard');
     }
 }
+
