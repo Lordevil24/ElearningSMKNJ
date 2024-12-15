@@ -1,150 +1,113 @@
 <script setup>
-import AdminLayout from '@/Layouts/AdminLayout.vue';
-import { ref } from 'vue';
-import { Head } from '@inertiajs/vue3';
+import AdminLayout from "@/Layouts/AdminLayout.vue";
+import { Head, Link, usePage } from "@inertiajs/vue3";
 
-// Contoh data guru (bisa diambil dari API)
-const dataGuru = ref([
-    { nama: 'Dr. Ali Setiawan', mataPelajaran: 'Matematika', pengalaman: '10 tahun', email: 'ali@example.com' },
-    { nama: 'Dr. Budi Santoso', mataPelajaran: 'Fisika', pengalaman: '8 tahun', email: 'budi@example.com' },
-    { nama: 'Dr. Citra Dewi', mataPelajaran: 'Biologi', pengalaman: '12 tahun', email: 'citra@example.com' },
-    { nama: 'Dr. Dedi Saputra', mataPelajaran: 'Kimia', pengalaman: '7 tahun', email: 'dedi@example.com' },
-    { nama: 'Dr. Endang Rahayu', mataPelajaran: 'Bahasa Inggris', pengalaman: '15 tahun', email: 'endang@example.com' },
-]);
-
-const userData = ref({ nama: '', mataPelajaran: '', pengalaman: '', email: '' });
-const currentIndex = ref(null);
-const editModal = ref(false);
-const deleteModal = ref(false);
-
-const openEditModal = (index) => {
-    userData.value = { ...dataGuru.value[index] };
-    currentIndex.value = index;
-    editModal.value = true;
-};
-
-const openDeleteModal = (index) => {
-    currentIndex.value = index;
-    deleteModal.value = true;
-};
-
-const saveEdit = () => {
-    Object.assign(dataGuru.value[currentIndex.value], userData.value);
-    alert('Data guru berhasil diperbarui!');
-    editModal.value = false;
-};
-
-const deleteGuru = () => {
-    dataGuru.value.splice(currentIndex.value, 1);
-    alert('Guru berhasil dihapus!');
-    deleteModal.value = false;
-};
+defineProps({
+    guru: Array,
+});
+const {
+    props: { flash, csrf_token: csrfToken },
+} = usePage();
 </script>
 
 <template>
-    <Head title="Data Guru" />
+    <Head title="Manajemen Guru" />
     <AdminLayout>
-        <!-- Data Guru Section -->
-        <section id="data-guru-section" class="data-guru-section gradient-background">
-        
+        <!-- Manajemen Pengguna Section -->
+        <section
+            id="manajemen-pengguna-section"
+            class="manajemen-pengguna-section gradient-background"
+        >
             <!-- Section Title -->
-            <div class="container section-title mt-5 text-center" data-aos="fade-up">
-                <h2 class="text-primary">Data Guru</h2>
-                <p class="text-muted">Informasi lengkap mengenai guru-guru yang mengajar di sekolah.</p>
-            </div><!-- End Section Title -->
-            
-            <!-- Tabel Data Guru -->
-            <div class="container mt-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="table-responsive">
-                    <table class="table table-bordered shadow-lg custom-table">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th style="border-radius: 10px 0 0 0;">Nama</th>
-                                <th>Mata Pelajaran</th>
-                                <th>Pengalaman</th>
-                                <th>Email</th>
-                                <th style="border-radius: 0 10px 0 0;">Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="(guru, index) in dataGuru" :key="index">
-                                <td>{{ guru.nama }}</td>
-                                <td>{{ guru.mataPelajaran }}</td>
-                                <td>{{ guru.pengalaman }}</td>
-                                <td>{{ guru.email }}</td>
-                                <td>
-                                    <button @click="openEditModal(index)" class="btn btn-warning btn-sm me-2">Edit</button>
-                                    <button @click="openDeleteModal(index)" class="btn btn-danger btn-sm">Hapus</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div><!-- End Tabel Data Guru -->
-        </section><!-- /Data Guru Section -->
-
-        <!-- Modal Edit Guru -->
-        <div v-if="editModal" class="modal fade show d-block" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header ">
-                        <h5 class="modal-title text-white">Edit Data Guru</h5>
-                        <button type="button" class="btn-close" @click="editModal = false"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form @submit.prevent="saveEdit">
-                            <!-- Nama -->
-                            <div class="mb-3">
-                                <label for="nama" class="form-label">Nama</label>
-                                <input v-model="userData.nama" type="text" class="form-control" id="nama" required>
-                            </div>
-
-                            <!-- Mata Pelajaran -->
-                            <div class="mb-3">
-                                <label for="mataPelajaran" class="form-label">Mata Pelajaran</label>
-                                <input v-model="userData.mataPelajaran" type="text" class="form-control" id="mataPelajaran" required>
-                            </div>
-
-                            <!-- Pengalaman -->
-                            <div class="mb-3">
-                                <label for="pengalaman" class="form-label">Pengalaman</label>
-                                <input v-model="userData.pengalaman" type="text" class="form-control" id="pengalaman" required>
-                            </div>
-
-                            <!-- Email -->
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input v-model="userData.email" type="email" class="form-control" id="email" required>
-                            </div>
-
-                            <!-- Submit Button -->
-                            <div class="d-grid gap-2">
-                                <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                            </div>
-                        </form>
-                    </div>
+            <div
+                class="container section-title mt-5 text-center"
+                data-aos="fade-up"
+            >
+                <h2 class="text-primary">Manajemen Pengguna</h2>
+                <p class="text-muted">
+                    Tambahkan pengguna baru dan lihat daftar pengguna yang
+                    terdaftar.
+                </p>
+                <div v-if="flash?.success" class="alert alert-success text-danger">
+                    {{ flash.success }}
                 </div>
             </div>
-        </div><!-- End Modal Edit Guru -->
+            <!-- End Section Title -->
 
-        <!-- Modal Hapus Guru -->
-        <div v-if="deleteModal" class="modal fade show d-block" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Hapus Data Guru</h5>
-                        <button type="button" class="btn-close" @click="deleteModal = false"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Apakah Anda yakin ingin menghapus data guru ini?</p>
-                        <div class="d-flex justify-content-end">
-                            <button @click="deleteModal = false" class="btn btn-secondary me-2">Batal</button>
-                            <button @click="deleteGuru" class="btn btn-danger">Hapus</button>
+            <!-- Tabel Pengguna -->
+            <div class="container mt-5" data-aos="fade-up" data-aos-delay="300">
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <div class="table-responsive">
+                            <table
+                                class="table table-bordered shadow-lg custom-table"
+                            >
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th style="border-radius: 10px 0 0 0">
+                                            Nama
+                                        </th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                        <th style="border-radius: 0 10px 0 0">
+                                            Aksi
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="user in guru" :key="user.id">
+                                        <td>{{ user.name }}</td>
+                                        <td>{{ user.email }}</td>
+                                        <td>{{ user.role || "N/A" }}</td>
+                                        <td>
+                                            <!-- Tambahkan aksi seperti Edit atau Hapus -->
+                                            <Link
+                                                :href="
+                                                    route(
+                                                        'master.guru.edit',
+                                                        user.id
+                                                    )
+                                                "
+                                                class="btn btn-primary btn-sm me-2"
+                                            >
+                                                Edit
+                                            </Link>
+                                            <form
+                                                :action="
+                                                    route(
+                                                        'master.guru.destroy',
+                                                        user.id
+                                                    )
+                                                "
+                                                method="POST"
+                                                class="d-inline"
+                                            >
+                                                <input
+                                                    type="hidden"
+                                                    name="_method"
+                                                    value="DELETE"
+                                                />
+                                                <input
+                                                    type="hidden"
+                                                    name="_token"
+                                                    :value="csrfToken"
+                                                />
+                                                <button
+                                                    type="submit"
+                                                    class="btn btn-danger btn-sm">
+                                                    Hapus
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-        </div><!-- End Modal Hapus Guru -->
+            <!-- End Tabel Pengguna -->
+        </section>
     </AdminLayout>
 </template>
 
@@ -164,6 +127,32 @@ const deleteGuru = () => {
 .section-title p {
     font-size: 1.1rem;
     color: #01579b;
+}
+
+.user-card {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 20px;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+}
+
+.card-body {
+    padding: 30px;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #0277bd;
+}
+
+.form-control {
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+    padding: 15px;
+    font-size: 1rem;
 }
 
 .custom-table {
@@ -208,26 +197,9 @@ const deleteGuru = () => {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-.btn-warning {
-    background-color: #f0ad4e;
-    border: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.btn-warning:hover {
-    background-color: #ec971f;
-    transform: scale(1.05);
-}
-
-.btn-danger {
-    background-color: #d9534f;
-    border: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.btn-danger:hover {
-    background-color: #c9302c;
-    transform: scale(1.05);
+.d-grid {
+    display: grid;
+    gap: 10px;
 }
 
 /* Modal Styles */
@@ -242,14 +214,26 @@ const deleteGuru = () => {
 
 .modal-header {
     padding: 15px;
-    background-color: #0277bd;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    border-bottom: 1px solid #e9ecef;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    color: white;
 }
 
-.btn-close {
-    color: #212529;
-    font-weight: bold;
-    }
+.modal-body {
+    padding: 20px;
+}
+
+.modal-title {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.close {
+    color: white;
+    opacity: 1;
+}
+
+.close span {
+    font-size: 1.5rem;
+}
 </style>

@@ -1,5 +1,9 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
+
+import { usePage } from '@inertiajs/vue3';
+
+const user = usePage().props.auth.user;
 </script>
 
 <template>
@@ -27,7 +31,8 @@ import { Link } from '@inertiajs/vue3';
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
-            <Link class="btn-getstarted" :href="route('login')">Log in</Link>
+            <Link v-if="user" class="btn-getstarted" :href="route('logout')" method="post" as="button">Logout</Link>
+            <Link v-else class="btn-getstarted" :href="route('login')">Log in</Link>
         </div>
     </header>
 

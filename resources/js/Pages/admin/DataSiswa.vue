@@ -1,144 +1,115 @@
+<script setup>
+import AdminLayout from "@/Layouts/AdminLayout.vue";
+import { Head, Link, usePage } from "@inertiajs/vue3";
+
+defineProps({
+    siswa: Array,
+});
+const {
+    props: { flash, csrf_token: csrfToken },
+} = usePage();
+</script>
+
 <template>
-    <Head title="Data Siswa" />
+    <Head title="Manajemen Guru" />
     <AdminLayout>
-        <!-- Data Siswa Section -->
-        <section id="data-siswa-section" class="data-siswa-section gradient-background">
-            
+        <!-- Manajemen Pengguna Section -->
+        <section
+            id="manajemen-pengguna-section"
+            class="manajemen-pengguna-section gradient-background"
+        >
             <!-- Section Title -->
-            <div class="container section-title mt-5 text-center" data-aos="fade-up">
-                <h2 class="text-primary">Data Siswa</h2>
-                <p class="text-muted">Informasi lengkap mengenai siswa di sekolah.</p>
-            </div><!-- End Section Title -->
-            
-            <!-- Tabel Data Siswa -->
-            <div class="container mt-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="d-flex justify-content-center mb-3">
-                    <button @click="openAddModal" class="btn btn-primary">Tambah Siswa</button>
-                </div>
-                <div class="table-responsive">
-                    <table class="table table-bordered shadow-lg custom-table">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th style="border-radius: 10px 0 0 0;">NISN</th>
-                                <th>Nama</th>
-                                <th>Kelas</th>
-                                <th style="border-radius: 0 10px 0 0;">Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="(siswa, index) in dataSiswa" :key="index">
-                                <td>{{ siswa.nisn }}</td>
-                                <td>{{ siswa.nama }}</td>
-                                <td>{{ siswa.kelas }}</td>
-                                <td>
-                                    <button @click="openEditModal(index)" class="btn btn-warning btn-sm me-2">Edit</button>
-                                    <button @click="openDeleteModal(index)" class="btn btn-danger btn-sm">Hapus</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div><!-- End Tabel Data Siswa -->
-        </section><!-- /Data Siswa Section -->
-
-        <!-- Modal Tambah Siswa -->
-        <div v-if="addModal" class="modal fade show d-block" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Tambah Data Siswa</h5>
-                        <button type="button" class="btn-close" @click="addModal = false"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form @submit.prevent="addSiswa">
-                            <!-- NISN -->
-                            <div class="mb-3">
-                                <label for="nisn" class="form-label">NISN</label>
-                                <input v-model="newSiswa.nisn" type="text" class="form-control" id="nisn" required>
-                            </div>
-
-                            <!-- Nama -->
-                            <div class="mb-3">
-                                <label for="nama" class="form-label">Nama</label>
-                                <input v-model="newSiswa.nama" type="text" class="form-control" id="nama" required>
-                            </div>
-
-                            <!-- Kelas -->
-                            <div class="mb-3">
-                                <label for="kelas" class="form-label">Kelas</label>
-                                <input v-model="newSiswa.kelas" type="text" class="form-control" id="kelas" required>
-                            </div>
-
-                            <!-- Submit Button -->
-                            <div class="d-grid gap-2">
-                                <button type="submit" class="btn btn-primary">Tambah Siswa</button>
-                            </div>
-                        </form>
-                    </div>
+            <div
+                class="container section-title mt-5 text-center"
+                data-aos="fade-up"
+            >
+                <h2 class="text-primary">Manajemen Pengguna</h2>
+                <p class="text-muted">
+                    Tambahkan pengguna baru dan lihat daftar pengguna yang
+                    terdaftar.
+                </p>
+                <div v-if="flash?.success" class="alert alert-success text-danger">
+                    {{ flash.success }}
                 </div>
             </div>
-        </div><!-- End Modal Tambah Siswa -->
+            <!-- End Section Title -->
 
-        <!-- Modal Hapus Siswa -->
-        <div v-if="deleteModal" class="modal fade show d-block" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Hapus Data Siswa</h5>
-                        <button type="button" class="btn-close" @click="deleteModal = false"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Apakah Anda yakin ingin menghapus data siswa ini?</p>
-                        <div class="d-flex justify-content-end">
-                            <button @click="deleteModal = false" class="btn btn-secondary me-2">Batal</button>
-                            <button @click="deleteSiswa" class="btn btn-danger">Hapus</button>
+            <!-- Tabel Pengguna -->
+            <div class="container mt-5" data-aos="fade-up" data-aos-delay="300">
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <div class="table-responsive">
+                            <table
+                                class="table table-bordered shadow-lg custom-table"
+                            >
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th style="border-radius: 10px 0 0 0">
+                                            Nama
+                                        </th>
+                                        <th>Email</th>
+                                        <th>Role</th>
+                                        <th style="border-radius: 0 10px 0 0">
+                                            Aksi
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="user in siswa" :key="user.id">
+                                        <td>{{ user.name }}</td>
+                                        <td>{{ user.email }}</td>
+                                        <td>{{ user.role || "N/A" }}</td>
+                                        <td>
+                                            <!-- Tambahkan aksi seperti Edit atau Hapus -->
+                                            <Link
+                                                :href="
+                                                    route(
+                                                        'master.siswa.edit',
+                                                        user.id
+                                                    )
+                                                "
+                                                class="btn btn-primary btn-sm me-2"
+                                            >
+                                                Edit
+                                            </Link>
+                                            <form
+                                                :action="
+                                                    route(
+                                                        'master.siswa.destroy',
+                                                        user.id
+                                                    )
+                                                "
+                                                method="POST"
+                                                class="d-inline"
+                                            >
+                                                <input
+                                                    type="hidden"
+                                                    name="_method"
+                                                    value="DELETE"
+                                                />
+                                                <input
+                                                    type="hidden"
+                                                    name="_token"
+                                                    :value="csrfToken"
+                                                />
+                                                <button
+                                                    type="submit"
+                                                    class="btn btn-danger btn-sm">
+                                                    Hapus
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-        </div><!-- End Modal Hapus Siswa -->
+            <!-- End Tabel Pengguna -->
+        </section>
     </AdminLayout>
 </template>
-
-<script setup>
-import AdminLayout from '@/Layouts/AdminLayout.vue';
-import { ref } from 'vue';
-import { Head } from '@inertiajs/vue3';
-
-// Contoh data siswa (bisa diambil dari API)
-const dataSiswa = ref([
-    { nisn: '123456789', nama: 'Ahmad', kelas: 'X RPL' },
-    { nisn: '987654321', nama: 'Siti', kelas: 'XI TKJ' },
-    { nisn: '456123789', nama: 'Budi', kelas: 'XII DKV' },
-]);
-
-const newSiswa = ref({ nisn: '', nama: '', kelas: '' });
-const currentIndex = ref(null);
-const addModal = ref(false);
-const deleteModal = ref(false);
-
-const openAddModal = () => {
-    newSiswa.value = { nisn: '', nama: '', kelas: '' };
-    addModal.value = true;
-};
-
-const openDeleteModal = (index) => {
-    currentIndex.value = index;
-    deleteModal.value = true;
-};
-
-const addSiswa = () => {
-    dataSiswa.value.push({ ...newSiswa.value });
-    alert('Siswa berhasil ditambahkan!');
-    addModal.value = false;
-};
-
-const deleteSiswa = () => {
-    dataSiswa.value.splice(currentIndex.value, 1);
-    alert('Siswa berhasil dihapus!');
-    deleteModal.value = false;
-};
-</script>
 
 <style scoped>
 .gradient-background {
@@ -158,6 +129,32 @@ const deleteSiswa = () => {
     color: #01579b;
 }
 
+.user-card {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 20px;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+}
+
+.card-body {
+    padding: 30px;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #0277bd;
+}
+
+.form-control {
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+    padding: 15px;
+    font-size: 1rem;
+}
+
 .custom-table {
     border-collapse: separate;
     border-spacing: 0 15px;
@@ -172,6 +169,16 @@ const deleteSiswa = () => {
     text-align: center;
 }
 
+.table tbody tr {
+    background-color: #fff;
+    transition: background-color 0.15s ease-in-out;
+    border: none;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
 .table tbody td {
     padding: 15px;
     text-align: center;
@@ -179,18 +186,54 @@ const deleteSiswa = () => {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.table tbody tr:hover {
-    background-color: #f1f1f1;
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
-.btn-success {
-    background-color: #5cb85c;
-    border: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+.shadow-lg {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
-.btn-success:hover {
-    background-color: #4cae4c;
-    transform: scale(1.05);
+.d-grid {
+    display: grid;
+    gap: 10px;
+}
+
+/* Modal Styles */
+.modal-dialog {
+    max-width: 600px;
+}
+
+.modal-content {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.modal-header {
+    padding: 15px;
+    border-bottom: 1px solid #e9ecef;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    color: white;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-title {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.close {
+    color: white;
+    opacity: 1;
+}
+
+.close span {
+    font-size: 1.5rem;
 }
 </style>
