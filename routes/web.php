@@ -42,7 +42,7 @@ Route::get('/our-ekstra', function () {
 
 Route::get('/our-materi', function () {
     return Inertia::render('siswa/PembelajaranSmk');
-})->name('materi');
+})->name('pembelajaran');
 
 Route::get('/our-class', function () {
     return Inertia::render('siswa/ClassStudent');

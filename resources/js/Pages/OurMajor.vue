@@ -25,7 +25,7 @@ import { Head, Link } from '@inertiajs/vue3';
                                 <i class="bi bi-lightning"></i>
                             </div>
                             <div>
-                                <h3>Teknik Pengelasan dan Teknik Listrik (TPTL)</h3>
+                                <h3>Teknik Pembangkit Tenaga Listrik (TPTL)</h3>
                                 <p>Program keahlian yang fokus pada teknik pengelasan dan kelistrikan untuk mendukung
                                     industri modern.</p>
                                 <a href="tptl-details.html" class="read-more">Read More <i

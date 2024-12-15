@@ -11,7 +11,7 @@ import { Head, Link } from '@inertiajs/vue3';
 
             <!-- Section Title -->
             <div class="container section-title mt-5 text-center" data-aos="fade-up">
-                <h2 class="text-primary">Pembelajaran di SMK Nurul Jadid</h2>
+                <h2 class="text-primary">Pembelajaran di Kelas X RPL</h2>
                 <p class="text-muted">Temukan berbagai sumber pembelajaran interaktif untuk mendukung kegiatan belajar Anda.</p>
             </div><!-- End Section Title -->
 
@@ -21,7 +21,7 @@ import { Head, Link } from '@inertiajs/vue3';
                     <!-- Learning Card -->
                     <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="learning-card">
-                            <img src="/images/mathematics.jpg" alt="Matematika" class="card-img-top">
+                            <img src="@/asset/img/mtk.jpg" alt="Matematika" class="card-img-top">
                             <div class="card-body">
                                 <h3 class="card-title">Matematika</h3>
                                 <p>Pelajari konsep matematika secara mendalam dengan modul dan video pembelajaran.</p>
@@ -33,7 +33,7 @@ import { Head, Link } from '@inertiajs/vue3';
                     <!-- Learning Card -->
                     <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                         <div class="learning-card">
-                            <img src="/images/science.jpg" alt="IPA" class="card-img-top">
+                            <img src="@/asset/img/ipa.jpg" alt="IPA" class="card-img-top">
                             <div class="card-body">
                                 <h3 class="card-title">Ilmu Pengetahuan Alam (IPA)</h3>
                                 <p>Jelajahi dunia sains melalui eksperimen virtual dan pembahasan mendalam.</p>
@@ -45,7 +45,7 @@ import { Head, Link } from '@inertiajs/vue3';
                     <!-- Learning Card -->
                     <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
                         <div class="learning-card">
-                            <img src="/images/history.jpg" alt="Sejarah" class="card-img-top">
+                            <img src="@/asset/img/sejarah.jpg" alt="Sejarah" class="card-img-top">
                             <div class="card-body">
                                 <h3 class="card-title">Sejarah</h3>
                                 <p>Pelajari peristiwa penting yang membentuk dunia kita hari ini.</p>
@@ -57,7 +57,7 @@ import { Head, Link } from '@inertiajs/vue3';
                     <!-- Learning Card -->
                     <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
                         <div class="learning-card">
-                            <img src="/images/programming.jpg" alt="Pemrograman" class="card-img-top">
+                            <img src="@/asset/img/code.jpg" alt="Pemrograman" class="card-img-top">
                             <div class="card-body">
                                 <h3 class="card-title">Pemrograman</h3>
                                 <p>Belajar coding mulai dari dasar hingga mahir dengan panduan lengkap.</p>

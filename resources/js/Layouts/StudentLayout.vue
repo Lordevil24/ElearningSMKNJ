@@ -22,7 +22,7 @@ import { Link } from '@inertiajs/vue3';
                                 class="bi bi-chevron-down toggle-dropdown"></i></a>
                         <ul>
                             <li><Link :href="route('class')">Kelas</Link></li>
-                            <li><Link :href="route('materi')">Materi Pembelajaran</Link></li>
+                            <li><Link :href="route('pembelajaran')">Materi Pembelajaran</Link></li>
                             <li><Link :href="route('diksusi')">Forum Diskusi</Link></li>
                             <li><a href="#">Ujian Sekolah</a></li>
                         </ul>
@@ -44,13 +44,12 @@ import { Link } from '@inertiajs/vue3';
     </main>
 
     <footer id="footer" class="footer">
-
         <div class="container footer-top">
             <div class="row gy-4">
                 <div class="col-lg-4 col-md-6 footer-about">
-                    <a href="index.html" class="logo d-flex align-items-center">
-                        <span class="sitename">iLanding</span>
-                    </a>
+                    <Link :href="route('home')" class="logo d-flex align-items-center">
+                        <span class="sitename"><img src="assets/img/logo_3.png" alt=""></span>
+                    </Link>
                     <div class="footer-contact pt-3">
                         <p>A108 Adam Street</p>
                         <p>New York, NY 535022</p>
@@ -68,62 +67,37 @@ import { Link } from '@inertiajs/vue3';
                 <div class="col-lg-2 col-md-3 footer-links">
                     <h4>Useful Links</h4>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Terms of service</a></li>
-                        <li><a href="#">Privacy policy</a></li>
+                        <li><Link :href="route('home')">Home</Link></li>
+                        <li><a href="#about">Guru SMK</a></li>
+                        <li><Link :href="route('majors')">Jurusan</Link></li>
+                        <li><a href="#features">Ekstrakurikuler</a></li>
+                        <li><Link :href="route('contact-us')">Kontak Kami</Link></li>
                     </ul>
                 </div>
 
                 <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Our Services</h4>
+                    <h4>Pembelajaran</h4>
                     <ul>
-                        <li><a href="#">Web Design</a></li>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Product Management</a></li>
-                        <li><a href="#">Marketing</a></li>
-                        <li><a href="#">Graphic Design</a></li>
+                        <li><a href="#">Kelas</a></li>
+                        <li><a href="#">Materi Pembelajaran</a></li>
+                        <li><a href="#">Forum Diskusi</a></li>
+                        <li><a href="#">Ujian Sekolah</a></li>
                     </ul>
                 </div>
 
-                <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Hic solutasetp</h4>
+                <div class="col-lg-4 col-md-6 footer-links">
+                    <h4>Informasi Kontak</h4>
                     <ul>
-                        <li><a href="#">Molestiae accusamus iure</a></li>
-                        <li><a href="#">Excepturi dignissimos</a></li>
-                        <li><a href="#">Suscipit distinctio</a></li>
-                        <li><a href="#">Dilecta</a></li>
-                        <li><a href="#">Sit quas consectetur</a></li>
+                        <li><p>A108 Adam Street, New York, NY 535022</p></li>
+                        <li><p><strong>Phone:</strong> +1 5589 55488 55</p></li>
+                        <li><p><strong>Email:</strong> info@example.com</p></li>
                     </ul>
                 </div>
-
-                <div class="col-lg-2 col-md-3 footer-links">
-                    <h4>Nobis illum</h4>
-                    <ul>
-                        <li><a href="#">Ipsam</a></li>
-                        <li><a href="#">Laudantium dolorum</a></li>
-                        <li><a href="#">Dinera</a></li>
-                        <li><a href="#">Trodelas</a></li>
-                        <li><a href="#">Flexo</a></li>
-                    </ul>
-                </div>
-
             </div>
         </div>
 
         <div class="container copyright text-center mt-4">
-            <p>© <span>Copyright</span> <strong class="px-1 sitename">iLanding</strong> <span>All Rights Reserved</span>
-            </p>
-            <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you've purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed By <a
-                    href="https://themewagon.com">ThemeWagon</a>
-            </div>
+            <p>© <span>Copyright</span> <strong class="px-1 sitename">E-Learning SMKNJ</strong> <span>All Rights Reserved</span></p>       
         </div>
-
     </footer>
 </template>

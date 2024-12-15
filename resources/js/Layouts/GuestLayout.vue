@@ -15,9 +15,9 @@ const user = usePage().props.auth.user;
             <nav id="navmenu" class="navmenu">
                 <ul>
                     <li><Link :href="route('home')" class="active">Beranda</Link></li>
-                    <li><a href="#about">Guru SMK</a></li>
+                    <li><Link :href="route('teachers')">Guru SMK</Link></li>
                     <li><Link :href="route('majors')">Jurusan</Link></li>
-                    <li><a href="#features">Ekstrakurikuler</a></li>
+                    <li><Link :href="route('ekstra')">Ekstrakurikuler</Link></li>
                     <li class="dropdown">
                         <a href="#"><span>Pembelajaran</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                         <ul>
@@ -38,6 +38,7 @@ const user = usePage().props.auth.user;
 
     <main class="main">
         <slot/>
+
     </main>
 
     <footer id="footer" class="footer">
