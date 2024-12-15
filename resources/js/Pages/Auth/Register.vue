@@ -87,7 +87,7 @@ const submit = () => {
 
                         <div class="text-center text-lg-start mt-4 pt-2">
 
-                            <PrimaryButton :class="{ 'opacity-25': form.processing }"
+                            <PrimaryButton  :class="{ 'opacity-25': form.processing }"
                                 :disabled="form.processing">
                                 Register
                             </PrimaryButton>

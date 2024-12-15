@@ -1,5 +1,5 @@
 <script setup>
-import GuestLayout from '@/Layouts/StudentLayout.vue';
+import GuestLayout from '@/Layouts/GuestLayout.vue';
 import { Head, Link } from '@inertiajs/vue3';
 </script>
 
@@ -21,7 +21,7 @@ import { Head, Link } from '@inertiajs/vue3';
 
                     <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="extracurricular-card">
-                            <img src="/images/pramuka.jpg" alt="Pramuka" class="card-img-top">
+                            <img src="../../Asset/img/pramuka.jpg" alt="Pramuka" class="card-img-top">
                             <div class="card-header text-center">
                                 <h3>Pramuka</h3>
                             </div>
@@ -36,7 +36,7 @@ import { Head, Link } from '@inertiajs/vue3';
 
                     <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                         <div class="extracurricular-card">
-                            <img src="/images/futsal.jpg" alt="Futsal" class="card-img-top">
+                            <img src="../../Asset/img/futsal.jpg" alt="Futsal" class="card-img-top">
                             <div class="card-header text-center">
                                 <h3>Futsal</h3>
                             </div>
@@ -52,7 +52,7 @@ import { Head, Link } from '@inertiajs/vue3';
 
                     <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
                         <div class="extracurricular-card">
-                            <img src="/images/paskibra.jpg" alt="Paskibra" class="card-img-top">
+                            <img src="../../Asset/img/paskibra.jpg" alt="Paskibra" class="card-img-top">
                             <div class="card-header text-center">
                                 <h3>Paskibra</h3>
                             </div>

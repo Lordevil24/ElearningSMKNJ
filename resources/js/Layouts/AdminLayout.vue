@@ -42,7 +42,7 @@ import { Link } from "@inertiajs/vue3";
         <div class="container copyright text-center mt-4">
             <p>
                 © <span>Copyright</span>
-                <strong class="px-1 sitename">iLanding</strong>
+                <strong class="px-1 sitename">E-learning</strong>
                 <span>All Rights Reserved</span>
             </p>
         </div>

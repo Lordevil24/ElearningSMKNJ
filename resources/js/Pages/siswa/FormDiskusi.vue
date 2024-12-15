@@ -21,7 +21,7 @@ const submitForm = () => {
         <section id="discussion-section" class="discussion-section blue-background">
             <!-- Section Title -->
             <div class="container section-title mt-5 text-center" data-aos="fade-up">
-                <h2 class="text-primary">Form Diskusi Siswa SMK Nurul Jadid</h2>
+                <h2 class="text-primary">Form Diskusi Siswa X RPL</h2>
                 <p class="text-muted">Sampaikan pertanyaan dan pendapat Anda di forum diskusi ini.</p>
             </div><!-- End Section Title -->
 

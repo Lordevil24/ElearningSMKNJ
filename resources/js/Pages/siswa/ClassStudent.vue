@@ -17,13 +17,24 @@ import { Head, Link } from '@inertiajs/vue3';
 
             <div class="container mt-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="row g-4">
-                    
+                       <!-- Class Card -->
+                       <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="class-card">
+                            
+                            <div class="card-body">
+                                <h3 class="card-title">Kelas X RPL</h3>
+                                <p>Akses materi dan tugas untuk Kelas X.</p>
+                                <Link href="/kelas-x-details" class="btn btn-primary">Selengkapnya</Link>
+                            </div>
+                        </div>
+                    </div><!-- End Class Card -->
+
                     <!-- Class Card -->
                     <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="class-card">
-                            <img src="/images/kelas-xi.jpg" alt="Kelas XI" class="card-img-top">
+                           
                             <div class="card-body">
-                                <h3 class="card-title">Kelas XI</h3>
+                                <h3 class="card-title">Kelas XI RPL</h3>
                                 <p>Akses materi dan tugas untuk Kelas XI.</p>
                                 <Link href="/kelas-xi-details" class="btn btn-primary">Selengkapnya</Link>
                             </div>
@@ -33,27 +44,16 @@ import { Head, Link } from '@inertiajs/vue3';
                     <!-- Class Card -->
                     <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                         <div class="class-card">
-                            <img src="/images/kelas-xii.jpg" alt="Kelas XII" class="card-img-top">
+                            
                             <div class="card-body">
-                                <h3 class="card-title">Kelas XII</h3>
+                                <h3 class="card-title">Kelas XII RPL</h3>
                                 <p>Akses materi dan tugas untuk Kelas XII.</p>
                                 <Link href="/kelas-xii-details" class="btn btn-primary">Selengkapnya</Link>
                             </div>
                         </div>
                     </div><!-- End Class Card -->
 
-                    <!-- Class Card -->
-                    <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-                        <div class="class-card">
-                            <img src="/images/kelas-x.jpg" alt="Kelas X" class="card-img-top">
-                            <div class="card-body">
-                                <h3 class="card-title">Kelas X</h3>
-                                <p>Akses materi dan tugas untuk Kelas X.</p>
-                                <Link href="/kelas-x-details" class="btn btn-primary">Selengkapnya</Link>
-                            </div>
-                        </div>
-                    </div><!-- End Class Card -->
-
+                 
                 </div>
             </div>
         </section><!-- /Kelas Section -->

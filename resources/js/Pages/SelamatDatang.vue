@@ -191,9 +191,9 @@ import { Head, Link } from '@inertiajs/vue3';
               <div class="row gy-4">
                 <div class="col-lg-5">
                   <div class="profile d-flex align-items-center gap-3">
-                    <img src="assets/img/avatar-1.webp" alt="CEO Profile" class="profile-image">
+                    <img src="../Asset/img/kepala.png" alt="CEO Profile" class="profile-image">
                     <div>
-                      <h4 class="profile-name">Dr. H. Zainal Arifin</h4>
+                      <h4 class="profile-name">Moh. Arief Hariyanto, M.Pd.</h4>
                       <p class="profile-position">Kepala SMK Nurul Jadid</p>
                     </div>
                   </div>
