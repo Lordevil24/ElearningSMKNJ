@@ -91,8 +91,8 @@ const submit = () => {
                                 :disabled="form.processing">
                                 Register
                             </PrimaryButton>
-                            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a :href="route('login')"
-                                    class="link-danger">Register</a></p>
+                            <p class="small fw-bold mt-2 pt-1 mb-0">Already have an account ? <a :href="route('login')"
+                                    class="link-danger">Login</a></p>
                         </div>
 
                     </form>

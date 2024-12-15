@@ -1,75 +1,103 @@
 <script setup>
-import AdminLayout from '@/Layouts/AdminLayout.vue';
-import { ref } from 'vue';
-import { Head } from '@inertiajs/vue3';
+import AdminLayout from "@/Layouts/AdminLayout.vue";
+import { Head, Link, usePage } from "@inertiajs/vue3";
 
-// Initial data for the form
-const userData = ref({
-    nama: '',
-    email: '',
-    role: ''
+defineProps({
+    users: Array,
 });
-
-const users = ref([
-    { nama: 'Ali', email: 'ali@example.com', role: 'Admin' },
-    { nama: 'Budi', email: 'budi@example.com', role: 'Guru' },
-    { nama: 'Citra', email: 'citra@example.com', role: 'Siswa' },
-]);
-
-const newUserModal = ref(false);
-
-const submitForm = () => {
-    users.value.push({ ...userData.value });
-    alert('User berhasil ditambahkan!');
-    userData.value = { nama: '', email: '', role: '' };
-    newUserModal.value = false;
-};
-
-const editUser = (index) => {
-    userData.value = { ...users.value[index] };
-    newUserModal.value = true;
-};
-
-const deleteUser = (index) => {
-    users.value.splice(index, 1);
-    alert('User berhasil dihapus!');
-};
+const {
+    props: { flash, csrf_token: csrfToken },
+} = usePage();
 </script>
 
 <template>
     <Head title="Manajemen Pengguna" />
     <AdminLayout>
         <!-- Manajemen Pengguna Section -->
-        <section id="manajemen-pengguna-section" class="manajemen-pengguna-section gradient-background">
-        
+        <section
+            id="manajemen-pengguna-section"
+            class="manajemen-pengguna-section gradient-background"
+        >
             <!-- Section Title -->
-            <div class="container section-title mt-5 text-center" data-aos="fade-up">
+            <div
+                class="container section-title mt-5 text-center"
+                data-aos="fade-up"
+            >
                 <h2 class="text-primary">Manajemen Pengguna</h2>
-                <p class="text-muted">Tambahkan pengguna baru dan lihat daftar pengguna yang terdaftar.</p>
-            </div><!-- End Section Title -->
-            
+                <p class="text-muted">
+                    Tambahkan pengguna baru dan lihat daftar pengguna yang
+                    terdaftar.
+                </p>
+                <div v-if="flash?.success" class="alert alert-success">
+                    {{ flash.success }}
+                </div>
+            </div>
+            <!-- End Section Title -->
+
             <!-- Tabel Pengguna -->
             <div class="container mt-5" data-aos="fade-up" data-aos-delay="300">
                 <div class="row justify-content-center">
                     <div class="col-md-10">
                         <div class="table-responsive">
-                            <table class="table table-bordered shadow-lg custom-table">
+                            <table
+                                class="table table-bordered shadow-lg custom-table"
+                            >
                                 <thead class="thead-dark">
                                     <tr>
-                                        <th style="border-radius: 10px 0 0 0 ;">Nama</th>
+                                        <th style="border-radius: 10px 0 0 0">
+                                            Nama
+                                        </th>
                                         <th>Email</th>
                                         <th>Role</th>
-                                        <th style="border-radius: 0 10px 0 0  ;">Aksi</th>
+                                        <th style="border-radius: 0 10px 0 0">
+                                            Aksi
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr v-for="(user, index) in users" :key="index">
-                                        <td>{{ user.nama }}</td>
+                                    <tr v-for="user in users" :key="user.id">
+                                        <td>{{ user.name }}</td>
                                         <td>{{ user.email }}</td>
-                                        <td>{{ user.role }}</td>
+                                        <td>{{ user.role || "N/A" }}</td>
                                         <td>
-                                            <button @click="editUser(index)" class="btn btn-warning btn-sm me-2">Edit</button>
-                                            <button @click="deleteUser(index)" class="btn btn-danger btn-sm">Hapus</button>
+                                            <!-- Tambahkan aksi seperti Edit atau Hapus -->
+                                            <Link
+                                                :href="
+                                                    route(
+                                                        'master.user.edit',
+                                                        user.id
+                                                    )
+                                                "
+                                                class="btn btn-primary btn-sm me-2"
+                                            >
+                                                Edit
+                                            </Link>
+                                            <form
+                                                :action="
+                                                    route(
+                                                        'master.user.destroy',
+                                                        user.id
+                                                    )
+                                                "
+                                                method="POST"
+                                                class="d-inline"
+                                            >
+                                                <input
+                                                    type="hidden"
+                                                    name="_method"
+                                                    value="DELETE"
+                                                />
+                                                <input
+                                                    type="hidden"
+                                                    name="_token"
+                                                    :value="csrfToken"
+                                                />
+                                                <button
+                                                    type="submit"
+                                                    class="btn btn-danger btn-sm">
+                                                    Hapus
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -77,54 +105,9 @@ const deleteUser = (index) => {
                         </div>
                     </div>
                 </div>
-            </div><!-- End Tabel Pengguna -->
-        </section><!-- /Manajemen Pengguna Section -->
-        <div v-if="newUserModal" class="modal fade show d-block" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content border-0 rounded-3 shadow-lg">
-            <div class="modal-header bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 text-white border-0 rounded-top position-relative">
-                <h5 class="modal-title text-white">Form Input Pengguna</h5>
-                <button type="button" class="close text-white position-absolute top-0 end-0 p-3" @click="newUserModal = false">
-                    <span>&times;</span>
-                </button>
             </div>
-            <div class="modal-body p-4 bg-light rounded-bottom">
-                <form @submit.prevent="submitForm">
-                    <!-- Nama -->
-                    <div class="mb-3">
-                        <label for="nama" class="form-label text-dark font-weight-bold">Nama</label>
-                        <input v-model="userData.nama" type="text" class="form-control form-control-lg shadow-sm border-0 rounded-3" id="nama" placeholder="Nama Pengguna" required>
-                    </div>
-
-                    <!-- Email -->
-                    <div class="mb-3">
-                        <label for="email" class="form-label text-dark font-weight-bold">Email</label>
-                        <input v-model="userData.email" type="email" class="form-control form-control-lg shadow-sm border-0 rounded-3" id="email" placeholder="Email Pengguna" required>
-                    </div>
-
-                    <!-- Role -->
-                    <div class="mb-3">
-                        <label for="role" class="form-label text-dark font-weight-bold">Role</label>
-                        <select v-model="userData.role" class="form-control form-control-lg shadow-sm border-0 rounded-3" id="role" required>
-                            <option value="" disabled>Pilih Role</option>
-                            <option value="Admin">Admin</option>
-                            <option value="Guru">Guru</option>
-                            <option value="Siswa">Siswa</option>
-                        </select>
-                    </div>
-
-                    <!-- Submit Button -->
-                    <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-primary btn-lg rounded-3 shadow-sm">Simpan Pengguna</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
+            <!-- End Tabel Pengguna -->
+        </section>
     </AdminLayout>
 </template>
 
@@ -170,21 +153,6 @@ const deleteUser = (index) => {
     border: 1px solid #ced4da;
     padding: 15px;
     font-size: 1rem;
-}
-
-.btn-primary {
-    background-color: #0277bd;
-    color: #fff;
-    border: none;
-    padding: 15px;
-    font-size: 1rem;
-    border-radius: 10px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.btn-primary:hover {
-    background-color: #01579b;
-    transform: scale(1.05);
 }
 
 .custom-table {

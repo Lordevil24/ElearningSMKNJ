@@ -1,11 +1,21 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\Admin\AdminDashboardController;
-use App\Http\Controllers\Guru\DashboardGuruController;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
+use App\Http\Controllers\ProfileController;
+
+use App\Http\Controllers\Admin\DataGuruController;
+use App\Http\Controllers\Admin\DataKelasController;
+use App\Http\Controllers\Admin\DataSiswaController;
+
+use App\Http\Controllers\Guru\DashboardGuruController;
+use App\Http\Controllers\Admin\AdminDashboardController;
+
+Route::get('/tunggu_konfirmasi', function () {
+    return Inertia::render('TungguKonfirmasi');
+})->name('tunggu-konfirmasi');
+
 
 Route::get('/', function () {
     return Inertia::render('SelamatDatang', [
@@ -66,24 +76,26 @@ Route::get('/InputSoal', function () {
 
 // Admin
 Route::middleware(['auth', 'role:admin'])->prefix('master')->name('master.')->group(function () {
-    Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
+    Route::get('/all-user', [AdminDashboardController::class, 'index'])->name('user');
+    Route::get('/all-user/{id}', [AdminDashboardController::class, 'edit'])->name('user.edit');
+    Route::put('/all-user/{id}', [AdminDashboardController::class, 'update'])->name('user.update');
+    Route::delete('/all-user/{id}', [AdminDashboardController::class, 'destroy'])->name('user.destroy');
+
+
+    Route::get('/guru', [DataGuruController::class, 'index'])->name('guru');
+    Route::get('/guru/{id}', [DataGuruController::class, 'edit'])->name('guru.edit');
+    Route::put('/guru/{id}', [DataGuruController::class, 'update'])->name('guru.update');
+    Route::delete('/guru/{id}', [DataGuruController::class, 'destroy'])->name('guru.destroy');
+
+
+    Route::get('/siswa', [DataSiswaController::class, 'index'])->name('siswa');
+    Route::get('/siswa/{id}', [DataSiswaController::class, 'edit'])->name('siswa.edit');
+    Route::put('/siswa/{id}', [DataSiswaController::class, 'update'])->name('siswa.update');
+    Route::delete('/siswa/{id}', [DataSiswaController::class, 'destroy'])->name('siswa.destroy');
+
+
+    Route::get('/kelas', [DataKelasController::class, 'index'])->name('kelas');
 });
-
-route::get('/DataUser', function () {
-    return Inertia::render('admin/DataUser');
-})->name('user');
-
-Route::get('/DataGuru', function () {
-   return Inertia::render('admin/DataGuru'); 
-})->name('guru');
-
-Route::get('/DataSiswa', function () {
-    return Inertia::render('admin/DataSiswa');
-})->name('siswa');
-
-Route::get('/DataKelas', function () {
-    return Inertia::render('admin/DataKelas');
-})->name('kelas');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -38,13 +38,14 @@ class AuthenticatedSessionController extends Controller
 
         $roleRedirects = [
             'siswa' => 'home',
-            'admin' => 'master.dashboard',
+            'kosong' => 'tunggu-konfirmasi',
+            'admin' => 'master.user',
             'guru' => 'guru.dashboard',
         ];
         
         // Redirect berdasarkan role atau ke default jika tidak ditemukan
         return redirect()->intended(
-            route($roleRedirects[$user->role] ?? 'home')
+            route($roleRedirects[$user->role] ?? 'tunggu-konfirmasi')
         );
     }
 
